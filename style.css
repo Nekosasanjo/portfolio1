@@ -31,7 +31,10 @@ h2{
 
 
 }
-    
+
+a{
+    text-decoration: none;
+}
 .tag a{
     text-decoration: none;
     padding: 5px 10px;
@@ -101,7 +104,10 @@ h3{
     h2{
         text-align: center;
     }
-
+    .tag{
+        margin: 0 0 0 ;
+        
+    }
     .tag a{
         margin:10px auto;
         
