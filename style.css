@@ -115,6 +115,10 @@ h2{
     text-align: center;
 }
 
+a{
+    color: black;
+}
+
 
 @media (max-width: 600px) {
     h2{
