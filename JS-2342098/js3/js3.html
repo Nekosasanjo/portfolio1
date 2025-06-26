@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript-3</title>
+
+<script type="text/JavaScript">
+
+var mouseX=0;
+var mouseY=0;
+
+function kansuu1(){
+document.onmousemove=GetMouseXY;
+}
+
+function GetMouseXY(e){
+
+if (!e)e=window.event;
+mouseX=e.clientX+(document.documentElement.scrollLeft || document.body.scrollLeft || window.pageXOffset || 0);
+mouseY=e.clientY+(document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset ||0);
+}
+
+
+function kansuu2(){
+document.F2.T1.value=mouseX;
+document.F2.T2.value=mouseY;
+setTimeout("kansuu2()",100);
+}
+
+
+function kansuu3(){
+document.onclick=BgcolorChange;
+}
+
+function BgcolorChange(){
+if(mouseX>500){
+document.bgColor="red";
+}else{
+document.bgColor="white";
+}
+}
+
+function kansuu4(){
+document.getElementById("L1").style.visibility="visible";
+MoveBar();
+}
+
+function MoveBar(){
+document.getElementById("L1").style.left=mouseX+1+"px";
+document.getElementById("L1").style.top=mouseY+"px";
+setTimeout("MoveBar()",10);
+}
+
+
+var speedY=20;
+
+function LayerGetLeft(name){
+return(parseInt(document.getElementById(name).style.left));
+}
+
+function LayerGetTop(name){
+return(parseInt(document.getElementById(name).style.top));
+}
+
+function kansuu5(){
+document.getElementById("L2").style.visibility="visible";
+MoveBall();
+}
+
+
+var speedX=0;
+
+function MoveBall(){
+ballX=LayerGetLeft("L2");
+ballY=LayerGetTop("L2");
+
+if (mouseX<ballX && ballX<mouseX +64 && mouseY <ballY+16){
+if (speedY>=0){
+speedY=-speedY;
+}
+if(ballX<mouseX+16){
+speedX=speedX-2;
+}else if(mouseX+64-16<ballX){
+speedX=speedX+2;
+}
+}
+if (ballY==0 && speedY<0){
+speedY=-speedY;
+}
+
+
+ballX=ballX+speedX;
+ballY=ballY+speedY;
+document.getElementById("L2").style.left=ballX+"px";
+document.getElementById("L2").style.top=ballY+"px";
+setTimeout("MoveBall()",100);
+}
+
+
+
+
+</script>
+
+
+
+
+
+</head>
+<body onload ="kansuu2()">
+<form name="F1">
+<input type ="button" value ="マウス位置の取得" onclick="kansuu1()">
+</form>
+
+<form name="F2">
+<input type="text" name="T1" size ="20">
+<input type="text" name="T2" size ="20">
+</form>
+
+<form name="F3">
+<input type="button" value="背景色の変更" onclick="kansuu3()">
+</form>
+
+<form name="F4">
+<input type="button" value="バーの表示とマウス移動" onclick="kansuu4()">
+</form>
+
+<div id="L1" style="position:absolute; visibility:hidden;">
+<img src="bar.gif">
+</div>
+
+<form name="F5">
+<input type="button" value="ボールの表示と落下" onclick="kansuu5()">
+</form>
+<div id="L2" style="position:absolute; left:250px; top:0px;visibility:hidden;">
+<img src="ball.gif">
+</div>
+
+</body>
+</html>
