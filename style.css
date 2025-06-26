@@ -60,7 +60,7 @@ h3{
 
 .kadai{
     font-size: 18px;
-    font-weight: bold;
+    
 }
 
 .page{
@@ -90,6 +90,7 @@ h3{
 }
 
 #ue{
+    text-decoration: none;
     color: black;
 }
 #comment{
