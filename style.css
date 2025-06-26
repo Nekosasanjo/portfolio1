@@ -83,7 +83,7 @@ h3{
 }
 
 .card{
-    
+    display: flex;
     margin-top: 6px;
     
     gap: 10px;
@@ -106,8 +106,13 @@ h3{
 
 }
 
+.footer{
+    text-align: center;
+    
+}
 
-@media (min-width: 600px) {
+
+@media (max-width: 600px) {
     h2{
         text-align: center;
     }
