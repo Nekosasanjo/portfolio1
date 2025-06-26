@@ -26,6 +26,7 @@ h2{
     gap: 50px;
     margin-top: 6px;
     padding: 30px;
+    margin: auto;
     
     
 
@@ -109,6 +110,9 @@ h3{
 .footer{
     text-align: center;
     
+}
+h2{
+    text-align: center;
 }
 
 
