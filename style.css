@@ -126,9 +126,22 @@ h3{
     }
     .card{
         flex-flow: column;
+        justify-content: center;
+
+        
+        
         
     }
 
+    .top{
+        flex-flow: column;
+    }
+    h1{
+        text-align: center;
+    }
+    .tag{
+        text-align: center;
+    }
     
 }
 
